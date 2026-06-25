@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game Backlog TCG</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Personal backlog deck</p>
+      <h1>Game Backlog TCG</h1>
+      <p class="subtitle">Filter your collection by title, series, arc, system, and status.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="Filters">
+      <input id="searchInput" type="search" placeholder="Search title..." />
+      <select id="seriesFilter"><option value="">All series</option></select>
+      <select id="systemFilter"><option value="">All systems</option></select>
+      <select id="arcFilter"><option value="">All arcs</option></select>
+      <select id="statusFilter"><option value="">All statuses</option></select>
+      <button id="resetButton" type="button">Reset</button>
+    </section>
+
+    <section class="summary">
+      <span id="resultCount">0 games</span>
+    </section>
+
+    <section id="cardGrid" class="card-grid" aria-live="polite"></section>
+  </main>
+
+  <template id="gameCardTemplate">
+    <article class="game-card">
+      <div class="card-frame">
+        <div class="cover-wrap">
+          <img class="cover" alt="" loading="lazy" />
+          <div class="cover-fallback"></div>
+        </div>
+        <div class="card-body">
+          <div class="card-topline">
+            <span class="rarity">★</span>
+            <span class="play-order"></span>
+          </div>
+          <h2 class="title"></h2>
+          <p class="meta arc"></p>
+          <div class="chips systems"></div>
+          <div class="footer-row">
+            <span class="status"></span>
+            <span class="priority"></span>
+          </div>
+          <p class="notes"></p>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
