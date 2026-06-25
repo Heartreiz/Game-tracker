@@ -1,0 +1,132 @@
+[
+  {
+    "title": "Trails in the Sky 1st Chapter",
+    "series": "Trails",
+    "arc": "Liberl",
+    "play_order": 1,
+    "systems": ["PC", "PlayStation 5", "Nintendo Switch", "Nintendo Switch 2"],
+    "status": "Backlog",
+    "priority": "High",
+    "notes": "Remake of Trails in the Sky FC."
+  },
+  {
+    "title": "Trails in the Sky 2nd Chapter",
+    "series": "Trails",
+    "arc": "Liberl",
+    "play_order": 2,
+    "systems": ["PC", "PlayStation 5", "Nintendo Switch", "Nintendo Switch 2"],
+    "status": "Backlog",
+    "priority": "High",
+    "notes": "Remake of Trails in the Sky SC. Planned for September 17, 2026."
+  },
+  {
+    "title": "Trails in the Sky the 3rd",
+    "series": "Trails",
+    "arc": "Liberl",
+    "play_order": 3,
+    "systems": ["PC", "PSP", "PlayStation Vita", "PlayStation 3"],
+    "status": "Backlog",
+    "priority": "Medium",
+    "notes": "No modern remake announced yet."
+  },
+  {
+    "title": "Trails from Zero",
+    "series": "Trails",
+    "arc": "Crossbell",
+    "play_order": 4,
+    "systems": ["PC", "PlayStation 4", "PlayStation 5", "Nintendo Switch", "Nintendo Switch 2"],
+    "status": "Backlog",
+    "priority": "High",
+    "notes": "PS5 and Switch 2 versions release September 10, 2026."
+  },
+  {
+    "title": "Trails to Azure",
+    "series": "Trails",
+    "arc": "Crossbell",
+    "play_order": 5,
+    "systems": ["PC", "PlayStation 4", "PlayStation 5", "Nintendo Switch", "Nintendo Switch 2"],
+    "status": "Backlog",
+    "priority": "High",
+    "notes": "PS5 and Switch 2 versions release September 10, 2026."
+  },
+  {
+    "title": "Trails of Cold Steel",
+    "series": "Trails",
+    "arc": "Erebonia",
+    "play_order": 6,
+    "systems": ["PC", "PlayStation 3", "PlayStation Vita", "PlayStation 4", "Nintendo Switch"],
+    "status": "Backlog",
+    "priority": "High",
+    "notes": ""
+  },
+  {
+    "title": "Trails of Cold Steel II",
+    "series": "Trails",
+    "arc": "Erebonia",
+    "play_order": 7,
+    "systems": ["PC", "PlayStation 3", "PlayStation Vita", "PlayStation 4", "Nintendo Switch"],
+    "status": "Backlog",
+    "priority": "High",
+    "notes": ""
+  },
+  {
+    "title": "Trails of Cold Steel III",
+    "series": "Trails",
+    "arc": "Erebonia",
+    "play_order": 8,
+    "systems": ["PC", "PlayStation 4", "PlayStation 5", "Nintendo Switch"],
+    "status": "Backlog",
+    "priority": "High",
+    "notes": ""
+  },
+  {
+    "title": "Trails of Cold Steel IV",
+    "series": "Trails",
+    "arc": "Erebonia",
+    "play_order": 9,
+    "systems": ["PC", "PlayStation 4", "PlayStation 5", "Nintendo Switch"],
+    "status": "Backlog",
+    "priority": "High",
+    "notes": ""
+  },
+  {
+    "title": "Trails into Reverie",
+    "series": "Trails",
+    "arc": "Crossbell / Erebonia",
+    "play_order": 10,
+    "systems": ["PC", "PlayStation 4", "PlayStation 5", "Nintendo Switch"],
+    "status": "Backlog",
+    "priority": "High",
+    "notes": "Epilogue/bridge game after Crossbell and Cold Steel."
+  },
+  {
+    "title": "Trails through Daybreak",
+    "series": "Trails",
+    "arc": "Calvard",
+    "play_order": 11,
+    "systems": ["PC", "PlayStation 4", "PlayStation 5", "Nintendo Switch"],
+    "status": "Backlog",
+    "priority": "High",
+    "notes": ""
+  },
+  {
+    "title": "Trails through Daybreak II",
+    "series": "Trails",
+    "arc": "Calvard",
+    "play_order": 12,
+    "systems": ["PC", "PlayStation 4", "PlayStation 5", "Nintendo Switch"],
+    "status": "Backlog",
+    "priority": "High",
+    "notes": ""
+  },
+  {
+    "title": "Trails beyond the Horizon",
+    "series": "Trails",
+    "arc": "Calvard",
+    "play_order": 13,
+    "systems": ["PC", "PlayStation 4", "PlayStation 5", "Nintendo Switch", "Nintendo Switch 2"],
+    "status": "Backlog",
+    "priority": "High",
+    "notes": "Releases January 15, 2026."
+  }
+]
