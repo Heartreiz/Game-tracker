@@ -1,29 +1,39 @@
-# TCG Game Tracker
+# Game Backlog
 
 Static GitHub Pages game tracker.
 
-## Files
-- index.html: page structure
-- style.css: TCG-style visual theme
-- script.js: filters and card rendering
-- games.json: your editable game data
-- covers/: put game cover images here
+## Main files
+- `index.html`: page structure
+- `style.css`: visual theme
+- `script.js`: search, filters, and card rendering
+- `games.json`: your editable game data
+- `covers/`: game cover images
 
-## Cover image names expected
-The current games.json expects these files:
+## Filtering
+The page now supports:
+- title search
+- series filter
+- system filter
+- tag filter
+- label filter
 
-- covers/trails-in-the-sky-1st-chapter.jpg
-- covers/trails-in-the-sky-2nd-chapter.jpg
-- covers/trails-in-the-sky-the-3rd.jpg
-- covers/trails-from-zero.jpg
-- covers/trails-to-azure.jpg
-- covers/trails-of-cold-steel.jpg
-- covers/trails-of-cold-steel-ii.jpg
-- covers/trails-of-cold-steel-iii.jpg
-- covers/trails-of-cold-steel-iv.jpg
-- covers/trails-into-reverie.jpg
-- covers/trails-through-daybreak.jpg
-- covers/trails-through-daybreak-ii.jpg
-- covers/trails-beyond-the-horizon.jpg
+## Example game entry
+```json
+{
+  "title": "Example Game",
+  "series": "Example Series",
+  "play_order": 1,
+  "systems": ["PC", "Nintendo Switch"],
+  "status": "Backlog",
+  "priority": "High",
+  "genre": "JRPG",
+  "tags": ["JRPG", "Turn-based", "Long game"],
+  "labels": ["Backlog", "Owned"],
+  "cover": "covers/example-game.jpg",
+  "notes": "Optional notes."
+}
+```
 
-If a cover file is missing, the card shows a styled fallback with the game title.
+## Notes
+- `tags` are for flexible descriptors like `JRPG`, `Turn-based`, `Remake`, `Cozy`, `Short game`.
+- `labels` are for personal workflow like `Owned`, `Wishlist`, `Playing`, `Paused`, `Finished`.

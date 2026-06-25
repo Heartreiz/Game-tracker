@@ -6,8 +6,8 @@ const els = {
   search: document.getElementById('searchInput'),
   series: document.getElementById('seriesFilter'),
   system: document.getElementById('systemFilter'),
-  arc: document.getElementById('arcFilter'),
-  status: document.getElementById('statusFilter'),
+  tag: document.getElementById('tagFilter'),
+  label: document.getElementById('labelFilter'),
   reset: document.getElementById('resetButton'),
   count: document.getElementById('resultCount')
 };
@@ -15,17 +15,22 @@ const els = {
 fetch('games.json')
   .then(response => response.json())
   .then(data => {
-    games = data.sort((a, b) => a.play_order - b.play_order);
+    games = data.sort((a, b) => (a.play_order || 9999) - (b.play_order || 9999));
     buildFilters();
     render();
   })
   .catch(error => {
-    els.grid.innerHTML = `<p>Could not load games.json. If opening locally, use a simple local server or GitHub Pages.</p>`;
+    els.grid.innerHTML = `<p>Could not load games.json. If opening locally, use GitHub Pages or a simple local server.</p>`;
     console.error(error);
   });
 
+function asArray(value) {
+  if (!value) return [];
+  return Array.isArray(value) ? value : [value];
+}
+
 function uniqueValues(field) {
-  return [...new Set(games.flatMap(game => Array.isArray(game[field]) ? game[field] : [game[field]]).filter(Boolean))].sort();
+  return [...new Set(games.flatMap(game => asArray(game[field])).filter(Boolean))].sort();
 }
 
 function populateSelect(select, values) {
@@ -40,24 +45,33 @@ function populateSelect(select, values) {
 function buildFilters() {
   populateSelect(els.series, uniqueValues('series'));
   populateSelect(els.system, uniqueValues('systems'));
-  populateSelect(els.arc, uniqueValues('arc'));
-  populateSelect(els.status, uniqueValues('status'));
+  populateSelect(els.tag, uniqueValues('tags'));
+  populateSelect(els.label, uniqueValues('labels'));
 }
 
 function matchesFilters(game) {
-  const query = els.search.value.trim().toLowerCase();
+  const titleQuery = els.search.value.trim().toLowerCase();
   const selectedSeries = els.series.value;
   const selectedSystem = els.system.value;
-  const selectedArc = els.arc.value;
-  const selectedStatus = els.status.value;
+  const selectedTag = els.tag.value;
+  const selectedLabel = els.label.value;
 
-  const matchesTitle = !query || game.title.toLowerCase().includes(query);
+  const matchesTitle = !titleQuery || game.title.toLowerCase().includes(titleQuery);
   const matchesSeries = !selectedSeries || game.series === selectedSeries;
-  const matchesSystem = !selectedSystem || game.systems.includes(selectedSystem);
-  const matchesArc = !selectedArc || game.arc === selectedArc;
-  const matchesStatus = !selectedStatus || game.status === selectedStatus;
+  const matchesSystem = !selectedSystem || asArray(game.systems).includes(selectedSystem);
+  const matchesTag = !selectedTag || asArray(game.tags).includes(selectedTag);
+  const matchesLabel = !selectedLabel || asArray(game.labels).includes(selectedLabel);
 
-  return matchesTitle && matchesSeries && matchesSystem && matchesArc && matchesStatus;
+  return matchesTitle && matchesSeries && matchesSystem && matchesTag && matchesLabel;
+}
+
+function addChips(container, values, className = 'chip') {
+  values.forEach(value => {
+    const chip = document.createElement('span');
+    chip.className = className;
+    chip.textContent = value;
+    container.appendChild(chip);
+  });
 }
 
 function render() {
@@ -76,26 +90,22 @@ function render() {
     if (!game.cover) img.classList.add('is-missing');
     fallback.textContent = game.title;
 
-    node.querySelector('.play-order').textContent = `#${game.play_order}`;
+    node.querySelector('.play-order').textContent = game.play_order ? `#${game.play_order}` : '';
     node.querySelector('.title').textContent = game.title;
-    node.querySelector('.arc').textContent = `${game.series} · ${game.arc} · ${game.genre || 'Game'}`;
-    node.querySelector('.status').textContent = game.status;
-    node.querySelector('.priority').textContent = `${game.priority} Priority`;
+    node.querySelector('.series').textContent = `${game.series || 'No series'} · ${game.genre || 'Game'}`;
+    node.querySelector('.status').textContent = game.status || 'No status';
+    node.querySelector('.priority').textContent = game.priority ? `${game.priority} Priority` : 'No priority';
     node.querySelector('.notes').textContent = game.notes || '';
 
-    const systems = node.querySelector('.systems');
-    game.systems.forEach(system => {
-      const chip = document.createElement('span');
-      chip.className = 'chip';
-      chip.textContent = system;
-      systems.appendChild(chip);
-    });
+    addChips(node.querySelector('.systems'), asArray(game.systems));
+    addChips(node.querySelector('.tags'), asArray(game.tags), 'chip tag-chip');
+    addChips(node.querySelector('.labels'), asArray(game.labels), 'chip label-chip');
 
     els.grid.appendChild(node);
   });
 }
 
-[els.search, els.series, els.system, els.arc, els.status].forEach(input => {
+[els.search, els.series, els.system, els.tag, els.label].forEach(input => {
   input.addEventListener('input', render);
 });
 
@@ -103,7 +113,7 @@ els.reset.addEventListener('click', () => {
   els.search.value = '';
   els.series.value = '';
   els.system.value = '';
-  els.arc.value = '';
-  els.status.value = '';
+  els.tag.value = '';
+  els.label.value = '';
   render();
 });

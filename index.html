@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Game Backlog TCG</title>
+  <title>Game Backlog</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="hero">
     <div>
-      <p class="eyebrow">Personal backlog deck</p>
+      <p class="eyebrow">Personal game backlog</p>
       <h1>Game Backlog</h1>
-      <p class="subtitle">Filter your collection by title, series, arc, system, and status.</p>
+      <p class="subtitle">Search by title and filter your collection by series, system, tag, or label.</p>
     </div>
   </header>
 
@@ -20,8 +20,8 @@
       <input id="searchInput" type="search" placeholder="Search title..." />
       <select id="seriesFilter"><option value="">All series</option></select>
       <select id="systemFilter"><option value="">All systems</option></select>
-      <select id="arcFilter"><option value="">All arcs</option></select>
-      <select id="statusFilter"><option value="">All statuses</option></select>
+      <select id="tagFilter"><option value="">All tags</option></select>
+      <select id="labelFilter"><option value="">All labels</option></select>
       <button id="resetButton" type="button">Reset</button>
     </section>
 
@@ -45,8 +45,10 @@
             <span class="play-order"></span>
           </div>
           <h2 class="title"></h2>
-          <p class="meta arc"></p>
+          <p class="meta series"></p>
           <div class="chips systems"></div>
+          <div class="chips tags"></div>
+          <div class="chips labels"></div>
           <div class="footer-row">
             <span class="status"></span>
             <span class="priority"></span>
