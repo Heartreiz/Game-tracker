@@ -13,14 +13,20 @@ const els = {
 };
 
 fetch('games.json')
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`games.json returned ${response.status}`);
+    }
+    return response.json();
+  })
   .then(data => {
     games = data.sort((a, b) => (a.play_order || 9999) - (b.play_order || 9999));
     buildFilters();
     render();
   })
   .catch(error => {
-    els.grid.innerHTML = `<p>Could not load games.json. If opening locally, use GitHub Pages or a simple local server.</p>`;
+    els.count.textContent = '0 games';
+    els.grid.innerHTML = `<p class="error">Could not load games.json. Check that games.json is valid JSON and is in the repo root.</p>`;
     console.error(error);
   });
 
@@ -56,7 +62,7 @@ function matchesFilters(game) {
   const selectedTag = els.tag.value;
   const selectedLabel = els.label.value;
 
-  const matchesTitle = !titleQuery || game.title.toLowerCase().includes(titleQuery);
+  const matchesTitle = !titleQuery || (game.title || '').toLowerCase().includes(titleQuery);
   const matchesSeries = !selectedSeries || game.series === selectedSeries;
   const matchesSystem = !selectedSystem || asArray(game.systems).includes(selectedSystem);
   const matchesTag = !selectedTag || asArray(game.tags).includes(selectedTag);
@@ -66,6 +72,7 @@ function matchesFilters(game) {
 }
 
 function addChips(container, values, className = 'chip') {
+  container.innerHTML = '';
   values.forEach(value => {
     const chip = document.createElement('span');
     chip.className = className;
@@ -88,11 +95,11 @@ function render() {
     img.alt = `${game.title} cover`;
     img.onerror = () => img.classList.add('is-missing');
     if (!game.cover) img.classList.add('is-missing');
-    fallback.textContent = game.title;
+    fallback.textContent = game.title || 'No cover';
 
     node.querySelector('.play-order').textContent = game.play_order ? `#${game.play_order}` : '';
-    node.querySelector('.title').textContent = game.title;
-    node.querySelector('.series').textContent = `${game.series || 'No series'} · ${game.genre || 'Game'}`;
+    node.querySelector('.title').textContent = game.title || 'Untitled game';
+    node.querySelector('.series').textContent = `${game.series || 'No series'} - ${game.genre || 'Game'}`;
     node.querySelector('.status').textContent = game.status || 'No status';
     node.querySelector('.priority').textContent = game.priority ? `${game.priority} Priority` : 'No priority';
     node.querySelector('.notes').textContent = game.notes || '';

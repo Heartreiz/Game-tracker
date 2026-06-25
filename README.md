@@ -3,14 +3,17 @@
 Static GitHub Pages game tracker.
 
 ## Main files
+
 - `index.html`: page structure
 - `style.css`: visual theme
 - `script.js`: search, filters, and card rendering
-- `games.json`: your editable game data
+- `games.json`: editable game data
 - `covers/`: game cover images
 
 ## Filtering
-The page now supports:
+
+The page supports:
+
 - title search
 - series filter
 - system filter
@@ -18,6 +21,7 @@ The page now supports:
 - label filter
 
 ## Example game entry
+
 ```json
 {
   "title": "Example Game",
@@ -35,5 +39,7 @@ The page now supports:
 ```
 
 ## Notes
-- `tags` are for flexible descriptors like `JRPG`, `Turn-based`, `Remake`, `Cozy`, `Short game`.
-- `labels` are for personal workflow like `Owned`, `Wishlist`, `Playing`, `Paused`, `Finished`.
+
+- `tags` are flexible descriptors like `JRPG`, `Turn-based`, `Remake`, `Cozy`, `Short game`.
+- `labels` are personal workflow states like `Owned`, `Wishlist`, `Playing`, `Paused`, `Finished`.
+- Cover image paths are case-sensitive. Example: `covers/trails-from-zero.jpg`.
