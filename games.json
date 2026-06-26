@@ -307,5 +307,18 @@
     ],
     "cover": "covers/trails-beyond-the-horizon.jpg",
     "notes": "Calvard arc continuation."
-  }
+  },
+  {
+  "title": "Stellar Blade",
+  "series": "Stellar",
+  "play_order": 1,
+  "systems": ["PC", "PlayStation 5"],
+  "status": "backlog",
+  "priority": "eventually",
+  "genre": "Korean Bayonetta",
+  "tags": ["single", "spectacle", ";)"],
+  "labels": ["spectable fighter", "not owned"],
+  "cover": "covers/eve1.jpg",
+  "notes": "when on sale "
+}
 ]
