@@ -320,5 +320,18 @@
   "labels": ["spectable fighter", "not owned"],
   "cover": "covers/Eve1.jpg",
   "notes": "when on sale "
+},
+{
+  "title": "Stellar Blade 2",
+  "series": "Stellar",
+  "play_order": 2,
+  "systems": ["PC", "PlayStation 5"],
+  "status": "backlog",
+  "priority": "eventually",
+  "genre": "Korean Bayonetta",
+  "tags": ["single", "spectacle", ";)"],
+  "labels": ["spectable fighter", "not owned"],
+  "cover": "covers/Eve2.jpg",
+  "notes": "when on sale/also not released yet lol "
 }
 ]
